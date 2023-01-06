@@ -1,0 +1,72 @@
+ Authentication:
+
+             a-z0-9
+             1-26, 27-37
+
+             //bob123
+
+             2
+             15
+             2
+             28
+             29
+             30
+             =
+             106/6 = 17.6666667
+
+             instead of //bob123 store 17.6666667
+
+
+             // cornerstone of cryptography
+             // one way function
+
+             // we want the chances of collision
+             // to be almost zero
+
+        ===========================================================================================================================
+
+             // GET /hello
+             // no authentication needed, anyone can hit this route and get a message back
+
+             // POST /register
+             // no authentication needed, anyone can use this route and register for our service
+
+             // POST / login
+             // no authentication needed, send username and password, returns a token
+             // when the username is in the system, and the password matches the username
+             // otherwise return a 400
+
+             // GET /customHello ===> (secretMessage)
+             // requires authentication, and returns a special message that includes your first name
+             // if you are not authenticated, then return a 400
+
+
+
+
+
+
+
+
+
+            // when adding users to the db we only add their passwordhash
+            // never their password
+
+            // when a user attempts to login
+            // we ask for their username and password
+            // and we generate a password hash form the password they gave us just now and
+            // we check it against the password hash stored in the database from when they registered
+
+            // if they authenticate correctly, then
+            // we create a token (we can put whatever we want in the token)
+            // we sign the token
+            // and we return the signed token back
+
+            // the client can then make a request, and send their signed token along
+            // if the route they are attempting to access requires the user to be authenticated
+            // then it is our job to make sure they have a good signed token before processing the request
+
+            // if the route they are attempting to access, requires special permissions,
+            // then we also have to check the contents of the token to see if they meet
+            // the special permissions before we process the request
+
+

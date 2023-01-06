@@ -1,0 +1,206 @@
+notes
+
+    checkJWT - add this to my routes that need me to login in order to see my stuff.
+
+
+
+
+
+
+
+
+
+
+
+
+    routes - "the rules"
+        - where we define what routes our app supports
+        - this is what the clients of our server will interact with, "contract"
+
+    controllers (Players) - "the how(work)"
+        - this is the code that implements our contracts
+        - this is the code that executes the logic that honors the contract
+
+    model
+        - this is the code that handles the data layer
+
+
+
+
+      let getSinglePlayer =
+          // what kind of query do we need to send
+          // to get a single player from the database if we know the id
+
+          function(request, response){
+              console.log ("GET /players/:id");
+
+
+              // if id is falsy (null, undefined, NAN, '')
+              if(!id) {
+                  response.send(400); // this is the clients fault resulting in 400 error code
+                  return;
+              }
+
+              let sql = "select id, firstName, lastName, gender from players where id = ?";
+              let params = [id]
+
+              database.query(sql, params, function(err, rows){
+                  if(err){
+                      console.log("failed to get a player from the database", err);
+                      response.sendStatus(500); // this is our fault if we get an error, so 500 error code
+                  } else {
+                      if(rows.length > 1){
+                          console.log("returned more than 1 row for id", id);
+                          response.sendStatus(500); // again this is still our fault, (500) code
+                      } else if (rows.length === 0){
+                          response.json(null);
+                      } else {
+
+
+                          response.json(rows[0]);
+                      }
+                  }
+              })
+          };
+
+        Get players by ID
+
+          // function(request, response){
+              //     console.log("GET/ players/:id");
+              // }
+              //
+              // // if id is falsy (null)
+              //     if(!id) {
+              //         console.log("Failed to Get Player needed for Update");
+              //         response.sendStatus(400); // this is the clients fault resulting in this error code.
+              //         return;
+              //     }
+              //
+              //     let sql = "SELECT id, firstName, lastName, gender from players WHERE id = ?";
+              //     let params =[id];
+              //
+              //     database.query(sql, params, function(err, rows){
+              //         if(err){
+              //             console.log("Failed to GET a player from the database", err);
+              //             response.sendStatus(500); // this is our fault if we get an error
+              //         } else {
+              //             if(rows.length > 1){
+              //                 console.log("returned more than 1 row for id", id);
+              //                 response.sendStatus(500); // this is our fault
+              //             } else if (rows.length === 0){
+              //                 response.json(null);
+              //             } else {
+              //                 response.json(rows[0]);
+              //             }
+              //         }
+              //     });
+
+            UPDATE player Example
+
+              // const updateUser = (req, res) => {
+              //     console.log(`inside the updateUser route`);
+              //     // Update user with id
+              //     let sql = `UPDATE users SET
+              //         UserId = ${req.params.UserId}, FirstName = ${req.params.FirstName}, LastName = ${req.params.LastName}, Age = ${req.params.Age}
+              //         WHERE UserId = ${req.params.UserId}`;
+              //     connection.query(sql, (err, results) => {
+              //         if (err) {
+              //             console.log(`there is an error : ${err}`);
+              //             res.status(500).send(`internal service error (employee by firstname), ${req.params.FirstName}`)
+              //         };
+              //         console.log(results);
+              //         res.json(results)
+              //     })
+              // };
+
+              // what kind of query do we send to update an entry in the database if we know the id
+
+                      // get the new description from the body
+                      // let description = request.body.description;
+                      //
+                      // // get the id to update from the route
+                      // let id = request.params.id;
+                      //
+                      // // get the new completed flag from the body
+                      // let completed = request.body.completed;
+                      //
+                      // // get the new color from the body
+                      // let firstName = request.body.firstName;
+                      //
+                      // let lastName = request.body.lastName;
+                      //
+                      // //we need to get the disc item we want to update from the innova bag array
+                      //
+                      // let matchingPlayer = playerTable.find(function(players, index){
+                      //     return players.id == id
+                      // });
+                      //
+                      // // if we found a matching disc in the bag, update it
+                      // // and return the updated item in the response
+                      // // if not return undefined exclusively as previously explained.
+                      //
+                      // if(matchingPlayer){
+                      //     matchingPlayer.description = description;
+                      //     matchingPlayer.id = id
+                      //     matchingPlayer.completed = completed;
+                      //     matchingPlayer.firstName = firstName;
+                      //     matchingPlayer.lastName = lastName;
+                      //
+                      //     response.json(matchingPlayer);
+                      // } else {
+                      //     response.json(undefined);
+                      // }
+
+
+              // what kind of query do we send to update an entry in the database if we know the id
+
+              //----------------------------------------------------------------------------------------------------------------
+
+              // all of this was from a previous assignment where we created the random id using math. random()
+
+
+              // this function will return a random number
+              // between 0 and 1000
+              // this function comes into play with all functions, but is especially key in the delete function.
+
+              // let getRandomNum = function(){
+              //     let randomFloat = Math.random();
+              //     let bigRandomFloat = randomFloat * 1000;
+              //     let randomNum = Math.floor(bigRandomFloat);
+              //     return randomNum.toString();
+              // }
+
+             Authentication:
+
+
+
+
+             // cornerstone of cryptography
+             // one way function
+
+             // we want the chances of collision
+             // to be almost zero
+
+
+            // when adding users to the db we only add their passwordhash
+            // never their password
+
+            // when a user attempts to login
+            // we ask for their username and password
+            // and we generate a password hash form the password they gave us just now and
+            // we check it against the password hash stored in the database from when they registered
+
+            // if they authenticate correctly, then
+            // we create a token (we can put whatever we want in the token)
+            // we sign the token
+            // and we return the signed token back
+
+            // the client can then make a request, and send their signed token along
+            // if the route they are attempting to access requires the user to be authenticated
+            // then it is our job to make sure they have a good signed token before processing the request
+
+            // if the route they are attempting to access, requires special permissions,
+            // then we also have to check the contents of the token to see if they meet
+            // the special permissions before we process the request
+
+

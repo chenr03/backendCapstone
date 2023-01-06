@@ -1,0 +1,14 @@
+This should be a good foundation and framework for you backend, it does not need to be fully completed or flushed out.
+
+But, it should include
+
+ERD diagram of the your table layout - this should show your datatypes ✅
+Nice if you have an example worked out for you tables and entities ✅
+
+Create table statements you need for your data model ✅
+Connection to a database deployed on a hosting service (AWS) ✅
+Deployed on a hosting service (fly.io) ✅
+Register route ✅
+Login route ✅
+static route/resource documenting your routes. try to document as many as you can, even if you do not implement all of them
+Around 50%+ of your routes implemented ✅

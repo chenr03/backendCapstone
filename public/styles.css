@@ -1,0 +1,56 @@
+.wrapper {
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+    background-color: lightgrey;
+    box-shadow: 5px 15px 15px -5px;
+    margin-top: 175px;
+
+}
+
+
+
+
+span {
+    padding-left: 15%;
+    font-size: 60px;
+    text-decoration: underline;
+    text-shadow: -1px 1px 0 #ffff, 1px 1px 0 #ffff, 1px -1px 0 #ffff, -1px -1px 0 #ffff;
+    margin-bottom: 50px;
+
+}
+
+p{
+    padding-left: 25%;
+    color: darkblue;
+}
+
+h3 {
+
+    color: dimgrey;
+    margin-top: 50px;
+    margin-left: 18%;
+
+}
+
+p{
+    margin-left: 18%;
+
+}
+
+picture{
+    background-size: 50px;
+}
+
+header {
+    font-size: 35px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+h1{
+    font-size: 20px;
+}
