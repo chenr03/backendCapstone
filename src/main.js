@@ -5,6 +5,10 @@ require("dotenv").config();
 let PORT = process.env.PORT || 8080;
 
 let discGolfApp = express();
+let cors = require('cors')
+
+
+discGolfApp.use(cors())
 
 
 
