@@ -17,7 +17,7 @@ notes
         - where we define what routes our app supports
         - this is what the clients of our server will interact with, "contract"
 
-    controllers (Players) - "the how(work)"
+    controllers (AllPlayers) - "the how(work)"
         - this is the code that implements our contracts
         - this is the code that executes the logic that honors the contract
 

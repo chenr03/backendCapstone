@@ -37,6 +37,7 @@ let getSingleCourse =
 
         let courseId = request.params.courseId;
 
+
         // if courseId is falsy
         if(!courseId) {
             response.send(400); // clients fault
@@ -45,7 +46,7 @@ let getSingleCourse =
 
         let sql = "SELECT * FROM Course where courseId = ?";
 
-        let params = [courseId]
+        let params = [courseId ]
 
         connection.query(sql, params, function(error, rows){
             if(error){
@@ -99,6 +100,7 @@ let createCourse =
             request.body.Hole17,
             request.body.Hole18
         ];
+        console.log('Params:', params);
 
         connection.query(sql, params, function(error, rows){
             if(error){

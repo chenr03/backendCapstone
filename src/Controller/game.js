@@ -15,7 +15,7 @@ let getAllGames =
 
         let sql = "SELECT * FROM Game";
 
-        //GETS all Games by selecting gameId, gameName,userId, courseId.
+        //GETS all AllGames by selecting gameId, gameName,userId, courseId.
 
         connection.query(sql, function(error, rows){
             //console.log('yo')

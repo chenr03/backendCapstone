@@ -12,7 +12,7 @@ let connection = require("../Utilities/database");
 
 
 //1
-let getAllPlayers =
+let AllPlayers =
 
     function(request, response){
         console.log ("GET /players");
@@ -52,7 +52,7 @@ let getAllPlayers =
  * /players/:id
  */
 
-let getSinglePlayer =
+let SinglePlayer =
     // what kind of query do we need to send
     // to get a single player from the database if we know the playerId
 
@@ -74,7 +74,7 @@ let getSinglePlayer =
         // let sql = "select id, firstName, lastName, gender from players where id = "+id;
         // instead use parameterized sql statements
 
-        let sql = "select gameId, playerId, playerName, Hole1Score, Hole2Score, Hole3Score, Hole4Score, Hole5Score, Hole6Score, Hole7Score, Hole8Score, Hole9Score, Hole10Score, Hole11Score, Hole12Score, Hole13Score, Hole14Score, Hole15Score, Hole16Score, Hole17Score, Hole18Score from Players where playerId = ?";
+        let sql = "select gameId, playerId, playerName, Hole1Score, Hole2Score, Hole3Score, Hole4Score, Hole5Score, Hole6Score, Hole7Score, Hole8Score, Hole9Score, Hole10Score, Hole11Score, Hole12Score, Hole13Score, Hole14Score, Hole15Score, Hole16Score, Hole17Score, Hole18Score from AllPlayers where playerId = ?";
 
         let params = [playerId]
 
@@ -272,5 +272,5 @@ let updatePlayer =
 
 
 
-module.exports = {getAllPlayers, getSinglePlayer, createPlayer, deletePlayer, updatePlayer};
+module.exports = {AllPlayers, SinglePlayer, createPlayer, deletePlayer, updatePlayer};
 

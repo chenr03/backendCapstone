@@ -38,7 +38,7 @@ CREATE TABLE Course (
 
 	);
 
-CREATE TABLE Players (
+CREATE TABLE AllPlayers (
 	gameId INT,
   	playerId INT PRIMARY KEY AUTO_INCREMENT,
   	playerName varchar(100),
