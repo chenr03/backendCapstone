@@ -25,14 +25,14 @@ discGolfApp.get("/", (req, res) => {
 
 // Packages that are being used on the discGolfApp:
 discGolfApp.use(express.json());
-discGolfApp.use(express.static("./discGolfApp2/public"));
+discGolfApp.use(express.static("./backendCapstone/public"));
 
 
 // Authorization Routes and Login Routes that are being used on the discGolfApp:
-let authRoutes = require("./Routes/authorizationRoutes")
+let authRoutes = require("./src/Routes/authorizationRoutes")
 discGolfApp.use(authRoutes);
 
-let loginRoutes = require("./Routes/loginRoutes")
+let loginRoutes = require("./src/Routes/loginRoutes")
 discGolfApp.use(loginRoutes);
 
 // discGolfApp.use("/success", function(request, response){
@@ -44,16 +44,16 @@ discGolfApp.use(loginRoutes);
 // in one place, instead of defining the Routes directly
 // on the app object
 
-let playerRoutes = require("./Routes/playerRoutes");
+let playerRoutes = require("./src/Routes/playerRoutes");
 discGolfApp.use(playerRoutes);
 
-let userRoutes = require("./Routes/userRoutes");
+let userRoutes = require("./src/Routes/userRoutes");
 discGolfApp.use(userRoutes);
 
-let gameRoutes = require("./Routes/gameRoutes");
+let gameRoutes = require("./src/Routes/gameRoutes");
 discGolfApp.use(gameRoutes);
 
-let courseRoutes = require("./Routes/courseRoutes");
+let courseRoutes = require("./src/Routes/courseRoutes");
 discGolfApp.use(courseRoutes);
 
 // only for users table and login
