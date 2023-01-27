@@ -1,7 +1,7 @@
 {
-  "name": "discGolfApp2",
+  "name": "backendCapstone",
   "scripts": {
-    "start": "nodemon src/main.js"
+    "start": "node src/main.js"
   },
   "dependencies": {
     "@mui/material": "^5.11.3",

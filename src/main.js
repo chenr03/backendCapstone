@@ -10,6 +10,13 @@ let cors = require('cors')
 
 discGolfApp.use(cors())
 
+// message from backend
+discGolfApp.get("/", (req, res) => {
+    res.json({
+        message: "Welcome to the Community Disc Golf Server",
+    });
+});
+
 
 
 
