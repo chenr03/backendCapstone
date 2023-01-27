@@ -1,7 +1,7 @@
 {
   "name": "backendcapstone",
   "scripts": {
-    "start": "node src/main.js"
+    "start": "node src/index.js"
   },
   "dependencies": {
     "@mui/material": "^5.11.3",
