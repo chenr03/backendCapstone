@@ -1,5 +1,5 @@
 {
-  "name": "backendCapstone",
+  "name": "backendcapstone",
   "scripts": {
     "start": "node src/main.js"
   },
