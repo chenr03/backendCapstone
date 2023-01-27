@@ -76,11 +76,12 @@ let createCourse =
 
         //these columns in the table is the contract between express and the database
         let sql = `INSERT INTO Course 
-                    (courseName, Hole1, Hole2, Hole3, Hole4, Hole5, Hole6, Hole7, Hole8, Hole9, Hole10, 
+                    (courseName, courseDescription, Hole1, Hole2, Hole3, Hole4, Hole5, Hole6, Hole7, Hole8, Hole9, Hole10, 
                      Hole11, Hole12, Hole13, Hole14, Hole15, Hole16, Hole17, Hole18) 
-                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`; //inserts into courses object table
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`; //inserts into courses object table
         let params = [
             request.body.courseName,
+            request.body.courseDescription,
             request.body.Hole1,
             request.body.Hole2,
             request.body.Hole3,
@@ -152,9 +153,10 @@ let updateCourse =
             return;
         }
 
-        let sql = "UPDATE Course SET courseName = ?, Hole1 = ?, Hole2 = ?, Hole3 = ?, Hole4 = ?, Hole5 = ?, Hole6 = ?, Hole7 = ?, Hole8 = ?, Hole9 = ?, Hole10 = ?, Hole11 = ?, Hole12 = ?, Hole13 = ?, Hole14 = ?, Hole15 = ?, Hole16 = ?, Hole17 = ?, Hole18 = ? WHERE courseId = ?";
+        let sql = "UPDATE Course SET courseName = ?, courseDescription = ?, Hole1 = ?, Hole2 = ?, Hole3 = ?, Hole4 = ?, Hole5 = ?, Hole6 = ?, Hole7 = ?, Hole8 = ?, Hole9 = ?, Hole10 = ?, Hole11 = ?, Hole12 = ?, Hole13 = ?, Hole14 = ?, Hole15 = ?, Hole16 = ?, Hole17 = ?, Hole18 = ? WHERE courseId = ?";
         let params = [
             request.body.courseName,
+            request.body.courseDescription,
             request.body.Hole1,
             request.body.Hole2,
             request.body.Hole3,

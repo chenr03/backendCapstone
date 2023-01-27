@@ -1,7 +1,7 @@
 {
   "name": "discGolfApp2",
   "scripts": {
-    "start": "node src/main.js"
+    "start": "nodemon src/main.js"
   },
   "dependencies": {
     "@mui/material": "^5.11.3",
