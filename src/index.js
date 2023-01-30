@@ -1,14 +1,28 @@
-let express = require('express');
 require("dotenv").config();
+let express = require('express');
 let PORT = process.env.PORT || 8080;
 let discGolfApp = express();
 let cors = require('cors')
 
 // App is using Cors: //
 discGolfApp.use(cors())
+discGolfApp.options('*', cors())
+// discGolfApp.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header(
+//         "Access-Control-Allow-Methods",
+//         "GET, POST, PUT, DELETE"
+//     );
+//     res.header(
+//         "Access-Control-Allow-Headers",
+//         "Content-Type, Content-Length, Authorization, Accept, X-Requested-With"
+//     );
+//     next();
+// });
 
 // Message from backend
 discGolfApp.get("/", (req, res) => {
+    // res.set("Access-Control-Allow-Origin", "*");
     res.json({
         message: "Welcome to the Community Disc Golf Server",
     });
